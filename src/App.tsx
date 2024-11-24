@@ -1,5 +1,7 @@
+import { Demo } from "./Demo";
+
 const App = () => {
-  return <div></div>;
+  return <Demo />;
 };
 
 export default App;
