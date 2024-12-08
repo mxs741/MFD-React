@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 40px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.nav-list-item {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+}
+
+.active {
+  color: red;
+}
+
+.list-item {
+  text-decoration: none;
+  color: black;
+}
