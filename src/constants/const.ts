@@ -10,9 +10,10 @@ export const dataMap: Record<string, CategoryType[]> = {
 };
 
 export const Paths = {
-  Home: "home",
-  Category: "categories/:name",
-  Element: "categories/:name/:id",
+  Home: "/home",
+  Category: "/categories/:name",
+  Element: "/categories/:name/:id",
+  Login: "/login",
 };
 
 export const pages = {

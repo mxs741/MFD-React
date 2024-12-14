@@ -6,19 +6,27 @@ import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
 import { Paths } from "./constants/const";
 import "./style.css";
+import { PrivateRoute } from "./components/PrivateRoute";
+import { AuthProvider } from "./context/AuthProvider";
+import { Login } from "./pages/Login";
 
 const App = () => {
   return (
-    <>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Navigate to={Paths.Home} />} />
-        <Route path={Paths.Home} element={<Home />} />
-        <Route path={Paths.Category} element={<Category />} />
-        <Route path={Paths.Element} element={<Element />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+    <AuthProvider>
+      <>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Navigate to={Paths.Home} />} />
+          <Route path={Paths.Home} element={<Home />} />
+          <Route element={<PrivateRoute />}>
+            <Route path={Paths.Category} element={<Category />} />
+            <Route path={Paths.Element} element={<Element />} />
+          </Route>
+          <Route path={Paths.Login} element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </>
+    </AuthProvider>
   );
 };
 

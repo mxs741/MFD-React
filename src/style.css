@@ -31,3 +31,46 @@
   text-decoration: none;
   color: black;
 }
+
+.form-container {
+  width: 300px;
+  height: 90vh;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: inherit;
+}
+
+.button {
+  background-color: #b4ce9170;
+  border-radius: 2rem;
+  border: none;
+  outline: 1px solid #b4ce91da;
+  padding: 6px 12px;
+}
+
+.input {
+  border: none;
+  outline: 1px solid #b4ce91da;
+  padding: 6px 12px;
+  width: inherit;
+  border-radius: 1rem;
+}
+
+.input:focus {
+  outline: 1px solid #b4ce91da;
+}
+
+.login-button {
+  font-size: 1.5rem;
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
