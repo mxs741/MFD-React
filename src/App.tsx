@@ -1,14 +1,17 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Element from "./pages/Element";
-import Category from "./pages/Category";
 import Navigation from "./components/Navigation";
-import NotFound from "./pages/NotFound";
 import { Paths } from "./constants/const";
 import "./style.css";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthProvider";
-import { Login } from "./pages/Login";
+import { lazy, Suspense } from "react";
+import { Fallback } from "./components/Fallback";
+
+const Home = lazy(() => import("./pages/Home"));
+const Category = lazy(() => import("./pages/Category"));
+const Element = lazy(() => import("./pages/Element"));
+const Login = lazy(() => import("./pages/Login"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   return (
@@ -17,13 +20,48 @@ const App = () => {
         <Navigation />
         <Routes>
           <Route path="/" element={<Navigate to={Paths.Home} />} />
-          <Route path={Paths.Home} element={<Home />} />
+          <Route
+            path={Paths.Home}
+            element={
+              <Suspense fallback={<Fallback />}>
+                <Home />
+              </Suspense>
+            }
+          />
           <Route element={<PrivateRoute />}>
-            <Route path={Paths.Category} element={<Category />} />
-            <Route path={Paths.Element} element={<Element />} />
+            <Route
+              path={Paths.Category}
+              element={
+                <Suspense fallback={<Fallback />}>
+                  <Category />
+                </Suspense>
+              }
+            />
+            <Route
+              path={Paths.Element}
+              element={
+                <Suspense fallback={<Fallback />}>
+                  <Element />
+                </Suspense>
+              }
+            />
           </Route>
-          <Route path={Paths.Login} element={<Login />} />
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path={Paths.Login}
+            element={
+              <Suspense fallback={<Fallback />}>
+                <Login />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<Fallback />}>
+                <NotFound />
+              </Suspense>
+            }
+          />
         </Routes>
       </>
     </AuthProvider>

@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useRef } from "react";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-export const Login = (): JSX.Element => {
+const Login = (): JSX.Element => {
   const { signin } = useAuth();
   const navigate = useNavigate();
   const formRef = useRef({
@@ -44,3 +44,5 @@ export const Login = (): JSX.Element => {
     </div>
   );
 };
+
+export default Login;
