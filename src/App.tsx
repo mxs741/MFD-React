@@ -6,6 +6,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthProvider";
 import { lazy, Suspense } from "react";
 import { Fallback } from "./components/Fallback";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const Category = lazy(() => import("./pages/Category"));
@@ -24,7 +25,9 @@ const App = () => {
             path={Paths.Home}
             element={
               <Suspense fallback={<Fallback />}>
-                <Home />
+                <ErrorBoundary>
+                  <Home />
+                </ErrorBoundary>
               </Suspense>
             }
           />
@@ -33,7 +36,9 @@ const App = () => {
               path={Paths.Category}
               element={
                 <Suspense fallback={<Fallback />}>
-                  <Category />
+                  <ErrorBoundary>
+                    <Category />
+                  </ErrorBoundary>
                 </Suspense>
               }
             />
@@ -41,7 +46,9 @@ const App = () => {
               path={Paths.Element}
               element={
                 <Suspense fallback={<Fallback />}>
-                  <Element />
+                  <ErrorBoundary>
+                    <Element />
+                  </ErrorBoundary>
                 </Suspense>
               }
             />
@@ -50,7 +57,9 @@ const App = () => {
             path={Paths.Login}
             element={
               <Suspense fallback={<Fallback />}>
-                <Login />
+                <ErrorBoundary>
+                  <Login />
+                </ErrorBoundary>
               </Suspense>
             }
           />
@@ -58,7 +67,9 @@ const App = () => {
             path="*"
             element={
               <Suspense fallback={<Fallback />}>
-                <NotFound />
+                <ErrorBoundary>
+                  <NotFound />
+                </ErrorBoundary>
               </Suspense>
             }
           />
