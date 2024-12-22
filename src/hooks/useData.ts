@@ -1,15 +1,24 @@
-import { dataMap } from "../constants/const";
+import { useEffect, useState } from "react";
 import { CategoryType } from "../types/types";
+import axios from "axios";
 
-export const useData = (
-  name?: string,
-  id?: string
-): CategoryType[] | CategoryType | null => {
-  const data = dataMap[name || ""] || [];
+export const useData = (name: string, id: string) => {
+  const [data, setData] = useState<CategoryType>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
-  if (id) {
-    return data.find((item: CategoryType) => item.id === Number(id)) || null;
-  }
+  useEffect(() => {
+    setIsLoading(true);
+    setError(false);
 
-  return data;
+    axios
+      .get(`https://rickandmortyapi.com/api/${name}/${id}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch(() => setError(true))
+      .finally(() => setIsLoading(false));
+  }, [name, id]);
+
+  return { data, isLoading, error };
 };
