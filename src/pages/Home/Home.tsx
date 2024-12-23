@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Paths } from "../constants/const";
-import { useAuth } from "../context/AuthProvider";
+import { Paths } from "../../constants/const";
+import { useAuth } from "../../context/AuthProvider/AuthProvider";
 
-const Home = (): JSX.Element => {
+export const Home = (): JSX.Element => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -21,5 +21,3 @@ const Home = (): JSX.Element => {
     </div>
   );
 };
-
-export default Home;

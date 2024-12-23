@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { AuthContextValue, AuthProviderProps } from "../types/types";
+import { AuthContextValue, AuthProviderProps } from "./types";
 
 const defaultValue: AuthContextValue = {
   user: null,

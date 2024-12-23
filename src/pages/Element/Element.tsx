@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useData } from "../hooks/useData";
+import { useData } from "../../hooks/useData";
 
-const data = (): JSX.Element => {
+export const Element = (): JSX.Element => {
   const { name = "character", id = "1" } = useParams();
   const { data, isLoading } = useData(name, id);
   console.log(name, id);
@@ -40,5 +40,3 @@ const data = (): JSX.Element => {
     </>
   );
 };
-
-export default data;

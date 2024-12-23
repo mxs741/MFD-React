@@ -1,8 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { pages, Paths } from "../constants/const";
-import { useAuth } from "../context/AuthProvider";
+import { useAuth } from "../../context/AuthProvider";
+import { pages, Paths } from "../../constants/const";
 
-const Navigation = (): JSX.Element => {
+export const Navigation = (): JSX.Element => {
   const { user, signout } = useAuth();
   const navigate = useNavigate();
 
@@ -34,5 +34,3 @@ const Navigation = (): JSX.Element => {
     </nav>
   );
 };
-
-export default Navigation;

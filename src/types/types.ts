@@ -28,13 +28,3 @@ export interface Locations {
 export type CategoryType = Episodes | Characters | Locations;
 
 export type CategoryKeys = keyof CategoryType;
-
-export interface AuthContextValue {
-  user: string | null;
-  signin: (newUser: string, callback: () => void) => void;
-  signout: (callback: () => void) => void;
-}
-
-export interface AuthProviderProps {
-  children: JSX.Element;
-}

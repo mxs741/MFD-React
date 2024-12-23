@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { Paths } from "../constants/const";
-import { useAuth } from "../context/AuthProvider";
+import { Paths } from "../../constants/const";
+import { useAuth } from "../../context/AuthProvider/AuthProvider";
 
 export const PrivateRoute = (): JSX.Element => {
   const { user } = useAuth();

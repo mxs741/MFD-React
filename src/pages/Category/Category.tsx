@@ -1,9 +1,9 @@
 import { NavLink, useParams } from "react-router-dom";
-import { CategoryType } from "../types/types";
-import { useLoadOnScroll } from "../hooks/useLoadOnScroll";
+import { CategoryType } from "../../types/types";
+import { useLoadOnScroll } from "../../hooks/useLoadOnScroll";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const Category = (): JSX.Element => {
+export const Category = (): JSX.Element => {
   const { name } = useParams();
 
   const [pageNumber, setPageNumber] = useState(1);
@@ -72,5 +72,3 @@ const Category = (): JSX.Element => {
     </div>
   );
 };
-
-export default Category;
